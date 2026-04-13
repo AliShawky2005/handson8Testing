@@ -2,6 +2,6 @@
 <suite name="RegressionOnly">
   <test name="RegressionTests">
     <groups><run><include name="Regression"/></run></groups>
-    <classes><class name="Exercise3"/></classes>
+    <classes><class name="exercise3"/></classes>
   </test>
 </suite>
