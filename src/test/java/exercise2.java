@@ -1,11 +1,11 @@
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import org.testng.Assert;
 
@@ -19,14 +19,16 @@ public class exercise2 {
     @Parameters("browser")
     @BeforeClass
     public void setup(String browser) {
+
         if (browser.equalsIgnoreCase("chrome")) {
-            //ChromeOptions options = new ChromeOptions();
-           // options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage");
-            driver = new ChromeDriver();
-        } else {
-            //EdgeOptions options = new EdgeOptions();
-            //options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage");
-            driver = new EdgeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage");
+            driver = new ChromeDriver(options);
+
+        } else if (browser.equalsIgnoreCase("firefox")) {
+            FirefoxOptions options = new FirefoxOptions();
+            options.addArguments("--headless");
+            driver = new FirefoxDriver(options);
         }
     }
 
